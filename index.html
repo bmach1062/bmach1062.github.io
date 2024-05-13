@@ -58,6 +58,7 @@
         <li>Interpretation: Insight & Policy Decision</li>
     </ol>
 
+    <h2>Data Collection</h2>
     <p>
         The first part of the data science lifecycle is data collection. In our project, we focused on gathering relevant information about the population of electric vehicles. We obtained our primary dataset, “Electruc_Vehicle_Population_Data.csv,” from the Department of Licensing (DOL) in Washington State and this dataset provides us comprehensive details on electric vehicles, including their make, model, electric range, and many other attributes. 
     </p>
@@ -65,31 +66,51 @@
         During this project, we will use Python as our primary language and Jupiter Notebook to develop this project. To learn more about Jupiter notebooks, click here to read about it. We will also be using the following imports. 
     </p>
     <pre><code class="language-python">
-# These are the standard Data Science Python Libraries
-import numpy as np
-import pandas as pd
-import sklearn
-from sklearn import linear_model
+        # These are the standard Data Science Python Libraries
+        import numpy as np
+        import pandas as pd
+        import sklearn
+        from sklearn import linear_model
 
-# These are the HTTP requests of Web Pages from Python Libraries 
-import requests
-from bs4 import BeautifulSoup
+        # These are the HTTP requests of Web Pages from Python Libraries 
+        import requests
+        from bs4 import BeautifulSoup
 
-# Dictionary Module
-from collections import defaultdict
+        # Dictionary Module
+        from collections import defaultdict
 
-# Python Libraries for graphing/visuals
-import matplotlib.pyplot as plt
-import statsmodels.api
-import statsmodels.formula.api as sm
-import seaborn
-import folium
+        # Python Libraries for graphing/visuals
+        import matplotlib.pyplot as plt
+        import statsmodels.api
+        import statsmodels.formula.api as sm
+        import seaborn
+        import folium
     </code></pre>
 
 
     <p>
         We will also be using these two important libraries: Pandas and NumPy. Pandas is a tool that allows us to manipulate data easily and it allows us to transform data easily because of its extensive array of tools. NumPy is able to perform computations on large datasets and it offers an efficient way to store and manipulate information. 
     </p>
+
+    <h2>Data Processing</h2>
+    <p>
+        First, we will load the dataset using the pandas library and read the contents of the CSV file into a DataFrame for further processing.
+    </p>
+
+    <pre><code class="language-python">
+        # Load our csv file, Electric_Vehicle_Population_Data.csv
+        file_path = 'Electric_Vehicle_Population_Data.csv'
+        data_of_ev = pd.read_csv(file_path)
+    </code></pre>
+
+    <p>
+        Data can oftentimes become very messy so we need to clean up the data. One example of data being messy is the fact that there can be missing values in the dataset. We can handle the missing values by dropping rows that contain missing values. 
+    </p>
+
+    <pre><code class="language-python">
+        # Rows with missing values will be dropped
+        data_of_ev_cleaned = data_of_ev.dropna()
+    </code></pre>
 
 
 </div>
